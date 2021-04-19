@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Validations</title>
+
+    <style>
+        .container {
+            width: 410px;
+            height: 430px;
+            border: 1px solid grey;
+            border-radius: 14px;
+            position: relative;
+            left: 374px;
+            /* text-align: center; */
+        }
+
+        .form {
+            position: relative;
+            left: 30px;
+            top: 50px;
+        }
+
+        input {
+            width: 170px;
+            height: 30px;
+            border: 1px solid gray;
+            border-radius: 3px;
+            outline: transparent;
+        }
+
+        .hide {
+            display: none;
+            font-family: Arial, Helvetica, sans-serif;
+            color: red;
+            position: relative;
+            top: -10px;
+            
+        }
+        #userError,#pwdError{
+            position: relative;
+            top: -29px;
+        }
+
+        .container .userbox {
+            width: 362px;
+            height: 30px;
+        }
+
+        .suggestion p {
+            position: relative;
+            top: -10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            color: gray;
+            line-height: 30px;
+            /* line-break: 2px ; */
+        }
+
+        .heading {
+            position: relative;
+            left: 0px;
+            top: -20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a {
+
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #1a73e8;
+        }
+
+        #check {
+            position: relative;
+            left: -4px;
+            top: -24px;
+            width: 25px;
+
+        }
+
+        span {
+            position: relative;
+            left: 18px;
+            top: -36px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(32, 31, 31);
+
+        }
+
+        .leftbtn {
+            position: relative;
+            left: -1px;
+            top: 5px;
+            color: #1a73e8;
+        }
+
+        .button {
+            width: 100px;
+            height: 45px;
+            background-color: #1a73e8;
+            color: white;
+            font-weight: bold;
+            border: 1px solid#1a73e8;
+            border-radius: 5px;
+            position: relative;
+            left: 128px;
+            top: 39px;
+            text-align: center;
+            outline: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="" class="form">
+            <div class="heading"> Create Your google account</div>
+            <div>
+                <input type="text" id="fName" placeholder="First Name" required> &nbsp;&nbsp;
+                <input type="text" id="lName" placeholder="Last Name" required>
+                <div id="nameError" class="hide">
+                    <p>Enter First Name and Last Name</p>
+                </div>
+
+            </div>
+            <br>
+            <div>
+                <input type="text" id="uName" class="userbox" placeholder="UserName" required>
+                <div class="suggestion">
+                    <p>you can use Letters , Numbers and periods</p>
+                </div>
+
+                <div id="userError" class="hide">
+                    <p>Choose a Gmail Address</p>
+                </div>
+                <a href="">Use my current email address instead</a>
+            </div>
+            <br>
+            <div>
+                <input type="password" id="Pass" placeholder="Password" required>&nbsp;&nbsp;
+                <input type="password" id="cPass" placeholder="Confirm Password" required>
+                <div class="suggestion suggestion2">
+                    <p> Use 8 or more characters with a mix of letters, numbers &  symbols</p>
+                        
+                </div>
+                <div id="pwdError" class="hide">
+                    <p>Enter a password</p>
+                </div>
+            </div>
+
+            <div>
+                <input type="checkbox" name="" id="check"> <span>Show Password</span>
+            </div>
+
+            <div>
+                <a href="#" class="leftbtn">Sign in Instead</a>
+                <span class="btn">
+                    <button type="submit" id="loginBtn" class="button"> Next </button>
+                </span>
+            </div>
+        </form>
+    </div>
+
+    <script>
+
+        
+
+
+
+
+        document.getElementById('loginBtn').addEventListener('click', function (event) {
+            event.preventDefault();
+
+            console.log('event');
+
+            let fName, lName, uName, Pass, cPass;
+
+            fName = document.querySelector('#fName').value;
+            lName = document.querySelector('#lName').value;
+            uName = document.querySelector('#uName').value;
+            Pass = document.querySelector('#Pass').value;
+            cPass = document.querySelector('#cPass').value;
+
+
+
+            
+            // if (Pass === cPass){
+            //     document.querySelector('#Pass').style.border='2px solid black';
+            //     document.querySelector('#cPass').style.border='2px solid black';
+            // }
+            // else{
+            //     document.querySelector('#Pass').style.border='2px solid red';
+            //     document.querySelector('#cPass').style.border='2px solid red';
+            // }
+
+
+
+            if(fName!=''){
+                document.querySelector('#fName').style.border='2px solid green';
+                document.querySelector('#nameError').style.display='none' ;
+            }
+            else{
+                document.querySelector('#fName').style.border='2px solid red'; 
+                document.querySelector('#nameError').style.display='block' ;
+  
+            }
+            if(lName!=''){
+                document.querySelector('#lName').style.border='2px solid green';
+                document.querySelector('#nameError').style.display='none' ;
+
+            }
+            else{
+                document.querySelector('#lName').style.border='2px solid red'; 
+                document.querySelector('#nameError').style.display='block' ;
+  
+            }
+            if(uName!=''){
+                document.querySelector('#uName').style.border='2px solid green';
+                document.querySelector('#userError').style.display='none' ;
+
+            }
+            else{
+                document.querySelector('#uName').style.border='2px solid red'; 
+                document.querySelector('#userError').style.display='block' ;
+  
+            }
+            if(Pass!='' && Pass === cPass){
+                document.querySelector('#Pass').style.border='2px solid green';
+                document.querySelector('#pwdError').style.display='none' ;
+                document.querySelector('#cPass').style.border='2px solid green';
+                document.querySelector('.container').style.height='440px' ;
+
+            }
+            else{
+                document.querySelector('#Pass').style.border='2px solid red'; 
+                document.querySelector('#pwdError').style.display='block' ;
+            }
+            if( Pass == '' || cPass!=Pass  ){
+                document.querySelector('#cPass').style.border='2px solid red';
+                document.querySelector('.container').style.height='560px' ;
+                document.querySelector('#Pass').style.border='2px solid red';
+                document.querySelector('.container').style.height='520px' ;
+
+            }
+            else{
+                document.querySelector('#cPass').style.border='2px solid green';   
+            }
+             
+            
+
+            // saare blank wali condition
+
+             if (fName == ''  && uName == '' && lName == '' && Pass == '' && cPass == '') {
+                document.querySelector('#fName').style.border='2px solid red';
+                document.querySelector('#lName').style.border='2px solid red';  
+                document.querySelector('#uName').style.border='2px solid red';
+                document.querySelector('#Pass').style.border='2px solid red';
+                document.querySelector('#cPass').style.border='2px solid red';
+                document.querySelector('#nameError').style.display='block' ;
+                document.querySelector('#userError').style.display='block' ;
+                document.querySelector('#pwdError').style.display='block' ; 
+                document.querySelector('.suggestion').style.display='block' ;
+                document.querySelector('.suggestion2').style.display='block' ;
+                document.querySelector('.container').style.height='560px' ;
+
+            }
+
+            // koi bhi blank nahi wali condition
+
+            else if(fName != '' && uName != '' && lName != '' && Pass != '' && cPass != '' && cPass != Pass){
+                document.querySelector('#fName').style.border='2px solid green';
+                document.querySelector('#lName').style.border='2px solid green';  
+                document.querySelector('#uName').style.border='2px solid green';
+                document.querySelector('#Pass').style.border='2px solid green';
+                document.querySelector('#cPass').style.border='2px solid red';
+                document.querySelector('#nameError').style.display='none' ;
+                // document.querySelector('.container').style.height='1560px' ;
+
+            }
+
+            // sirf first Name Blank wali condition
+
+             else if (fName == '' && uName != '' && lName != '' && Pass != '' && cPass != '') {
+                document.querySelector('#fName').style.border='2px solid red';
+                document.querySelector('#lName').style.border='2px solid green';  
+                document.querySelector('#uName').style.border='2px solid green';
+                document.querySelector('#Pass').style.border='2px solid green';
+                document.querySelector('#cPass').style.border='2px solid green';
+                document.querySelector('#nameError').style.display='block' ;
+                document.querySelector('.suggestion').style.display='block' ;
+                document.querySelector('.suggestion2').style.display='block' ;
+                document.querySelector('.container').style.height='600px' ;
+
+            }
+
+            
+            // sirf Last Name Blank wali condition
+
+            else if (lName == '' && uName != '' && fName != '' && Pass != '' && cPass != '') {
+                document.querySelector('#fName').style.border='2px solid green';
+                document.querySelector('#lName').style.border='3px solid red';  
+                document.querySelector('#uName').style.border='2px solid green';
+                document.querySelector('#Pass').style.border='2px solid green';
+                document.querySelector('#cPass').style.border='2px solid green';
+                document.querySelector('#nameError').style.display='block' ;
+                document.querySelector('.suggestion').style.display='block' ;
+                document.querySelector('.suggestion2').style.display='block' ;
+
+            }
+
+            // sirf user Name Blank wali condition
+
+            else if (uName == '' && lName != '' && fName != '' && Pass != '' && cPass != '') {
+                document.querySelector('#fName').style.border='2px solid green';
+                document.querySelector('#lName').style.border='2px solid green';  
+                document.querySelector('#uName').style.border='2px solid red';
+                document.querySelector('#Pass').style.border='2px solid green';
+                document.querySelector('#cPass').style.border='2px solid green';
+                document.querySelector('#nameError').style.display='none' ;
+                document.querySelector('.suggestion').style.display='block' ;
+                document.querySelector('.suggestion2').style.display='block' ;
+                // document.querySelector('.container').style.height='470px' ;
+
+            }
+
+            // sirf Password Blank wali condition
+
+            else if (Pass == '' && lName != '' && fName != '' && uName != '' && cPass != '') {
+                document.querySelector('#fName').style.border='2px solid green';
+                document.querySelector('#lName').style.border='2px solid green';  
+                document.querySelector('#uName').style.border='2px solid green';
+                document.querySelector('#Pass').style.border='2px solid red';
+                document.querySelector('#cPass').style.border='2px solid green';
+                document.querySelector('#nameError').style.display='none' ;
+                document.querySelector('.suggestion').style.display='block' ;
+                document.querySelector('.suggestion2').style.display='block' ;
+                document.querySelector('.container').style.height='500px' ;
+
+            }
+            
+            // sirf  confirm Password Blank wali condition
+
+            else if (cPass == '' && lName != '' && fName != '' && uName != '' && Pass != '') {
+                document.querySelector('#fName').style.border='2px solid green';
+                document.querySelector('#lName').style.border='2px solid green';  
+                document.querySelector('#uName').style.border='2px solid green';
+                document.querySelector('#Pass').style.border='2px solid green';
+                document.querySelector('#cPass').style.border='2px solid red';
+                document.querySelector('#nameError').style.display='none' ;
+                document.querySelector('.suggestion').style.display='block' ;
+                document.querySelector('.suggestion2').style.display='block' ;
+                document.querySelector('.container').style.height='470px' ;
+
+            }
+
+            // sirf  first name filled baaki saari Blank wali condition
+        
+            else if (fName != '' && lName == '' && uName == '' && Pass == '' && cPass == '') {
+                document.querySelector('#fName').style.border='2px solid green';
+                document.querySelector('#lName').style.border='2px solid red';  
+                document.querySelector('#uName').style.border='2px solid red';
+                document.querySelector('#Pass').style.border='2px solid red';
+                document.querySelector('#cPass').style.border='2px solid red';
+                document.querySelector('#nameError').style.display='block' ;
+                document.querySelector('.suggestion').style.display='block' ;
+                document.querySelector('.suggestion2').style.display='block' ;
+                document.querySelector('.container').style.height='565px' ;
+
+            }
+
+            // sirf  Last name filled baaki saari Blank wali condition
+        
+            else if (lName != '' && fName == '' && uName == '' && Pass == '' && cPass == '') {
+                document.querySelector('#fName').style.border='2px solid red';
+                document.querySelector('#lName').style.border='2px solid green';  
+                document.querySelector('#uName').style.border='2px solid red';
+                document.querySelector('#Pass').style.border='2px solid red';
+                document.querySelector('#cPass').style.border='2px solid red';
+                document.querySelector('#nameError').style.display='block' ;
+                document.querySelector('.suggestion').style.display='block' ;
+                document.querySelector('.suggestion2').style.display='block' ;
+
+            }
+            // sirf  username filled baaki saari Blank wali condition
+        
+            else if (uName != '' && lName == '' && fName == '' && Pass == '' && cPass == '') {
+                document.querySelector('#fName').style.border='2px solid red';
+                document.querySelector('#lName').style.border='2px solid red';  
+                document.querySelector('#uName').style.border='2px solid green';
+                document.querySelector('#Pass').style.border='2px solid red';
+                document.querySelector('#cPass').style.border='2px solid red';
+                document.querySelector('#nameError').style.display='block' ;
+                document.querySelector('.suggestion').style.display='block' ;
+                document.querySelector('.suggestion2').style.display='block' ;
+                
+            }
+            // sirf  password filled baaki saari Blank wali condition
+        
+            else if (Pass != '' && lName == '' && uName == '' && fName == '' && cPass == '') {
+                document.querySelector('#fName').style.border='2px solid red';
+                document.querySelector('#lName').style.border='2px solid red';  
+                document.querySelector('#uName').style.border='2px solid red';
+                document.querySelector('#Pass').style.border='2px solid green';
+                document.querySelector('#cPass').style.border='2px solid red';
+                document.querySelector('#nameError').style.display='block' ;
+                document.querySelector('.suggestion').style.display='block' ;
+                document.querySelector('.suggestion2').style.display='block' ;
+
+            }
+
+            // sirf confirm  password filled baaki saari Blank wali condition
+        
+            else if (cPass != '' && lName == '' && uName == '' && fName == '' && Pass == '' ) {
+                document.querySelector('#fName').style.border='2px solid red';
+                document.querySelector('#lName').style.border='2px solid red';  
+                document.querySelector('#uName').style.border='2px solid red';
+                document.querySelector('#Pass').style.border='2px solid red';
+                document.querySelector('#cPass').style.border='2px solid green';
+                document.querySelector('#nameError').style.display='block' ;
+                document.querySelector('.suggestion').style.display='block' ;
+                document.querySelector('.suggestion2').style.display='block' ;
+
+            }
+            
+        
+            
+
+
+
+
+            
+           
+            
+            
+
+
+            
+
+
+
+            
+           
+
+
+
+
+
+
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
