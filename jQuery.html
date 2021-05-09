@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <!-- cdn wala link -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+
+    <script src="jquery.js"></script>
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+
+            display: flex;
+            width: 100%;
+            /* justify-content: center; */
+            /* align-items: center; */
+
+        }
+
+        /* .form{
+            width: 200px;
+        } */
+        .box {
+            margin: 0 100px;
+            min-width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            background-color: rgb(139, 127, 15);
+
+        }
+
+        .box2 {
+            background-color: aquamarine;
+        }
+
+        .box3 {
+            background-color: rgb(228, 47, 204);
+        }
+
+        .form-container {
+            margin: auto;
+            display: block;
+            width: 600px;
+            height: 250px;
+            border: 1px solid black;
+            padding: 10px 50px;
+
+        }
+
+        .btn-btn {
+            width: 140px;
+            height: 30px;
+            position: relative;
+            left: 1px;
+        }
+
+        .first {
+            background-color: brown;
+        }
+
+        .second {
+            background-color: rgb(39, 2, 24);
+        }
+
+        .third {
+            background-color: rgb(17, 199, 0);
+        }
+
+        /* .form{
+            margin: auto;
+        } */
+    </style>
+</head>
+
+<body>
+
+    <h1 id="heading">jQuery</h1>
+
+    <ul>
+        <h3> steps to implement jQuery in HTML</h3>
+        <h4>
+            <li>download jQuery.js file from jquery website - save it in a folder import it
+                in script tag with source as a file path , inside head tag
+            </li><br>
+            <li>
+                cdn : click on download scroll down there is a cdn link copy the latest version
+                paste that as it is our head tag
+            </li>
+        </h4>
+    </ul>
+    <hr>
+    <br><br>
+
+    <div id="four" class="box ">
+        <h3> test box 4 </h3>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, illum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, illum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, illum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, illum.</p>
+    </div>
+    <br>
+    
+    <button id="add1" class="btn-btn">Add class</button>
+    <button id="remove1" class="btn-btn">Remove class</button>
+    <button id="toggle1" class="btn-btn">Toggle class</button>
+    <button id="addstyle1" class="btn-btn">Add Style</button>
+    <button id="removeevents" class="btn-btn">Remove Events</button>
+    <button id="append1" class="btn-btn">Append</button>
+    <button id="prepend1" class="btn-btn">Prepend</button>
+    <button id="after1" class="btn-btn">After</button>
+    <button id="before1" class="btn-btn">Before</button>
+    <button id="empty2" class="btn-btn">Empty</button>
+    <button id="remove2" class="btn-btn">Remove</button>
+    <button id="append2" class="btn-btn">append to</button>
+    <button id="prepend2" class="btn-btn">prepend to</button>
+    <button id="clone" class="btn-btn">clone</button>
+    <button id="replace" class="btn-btn">Replace</button>
+    <br><br>
+    <div id="five" class="box ">
+
+    </div>
+
+    <br><br><br>
+    <div class=" form-container">
+        <div class="form">
+
+            <form action="" id="form">
+                <label for="name">Name </label><input type="text" name="name" id="name" required><br><br>
+                <label for="class">class </label><input type="text" name="class" id="class"><br><br>
+                <label for="date">Date of Birth </label><input type="text" name="date" id="date">
+                <br><br>
+                <label for="">country</label>
+                <select name="" id="select" class="country">
+                    <option value="">India</option>
+                    <option value="">Pakistan</option>
+                    <option value="">Bangladesh</option>
+                    <option value="">Srilanka</option>
+                    <option value="">Nepal</option>
+                </select>
+                <br><br>
+                <input type="submit" name="" id="submit">
+            </form>
+            <br>
+            <div id="test" style="border: 1px solid black;width: 500px; height: 30px; border-radius: 10px;">
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <br><br>
+    <hr>
+    <div class="container">
+
+
+        <div id="one" class="box ">
+            <h3> test box 1 </h3>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, illum.</p>
+        </div>
+
+
+        <div id="two" class="box box2">
+            <h3> test box 2 </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, illum.</p>
+
+        </div>
+        <br>
+        <div id="three" class="box box3">
+            <h3> test box 3 </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, illum.</p>
+
+        </div>
+        <br>
+    </div>
+    <br><br>
+
+    <hr><br>
+    <ul id="list">
+        <li>Orange</li>
+        <li class="test">Banana</li>
+        <li>Grapes</li>
+        <li class="test">Apple</li>
+        <li>Guava</li>
+    </ul>
+
+
+    <script>
+        // Basic Syntax :
+
+        // $(document).ready(function(){  --- important // jaise hi hamara document ready ho jayaga tab function run ho jayega
+        //    Furthar jQuery code
+        // })
+
+        // OR 
+
+        // $(function(){   --- jab ye body be likhenge tabhi ye method implement hoga
+
+        // })
+
+        //  basic syntax : 
+
+        $(document).ready(function () {
+            var a = $('.box').html();
+            console.log(a);
+
+            var b = $('.box2').html();
+            console.log(b);
+
+
+            // Selectors : use to target/select the elements of DOM
+
+            // - ID ------$('#idName')
+            // - class ----$('.className')
+            // - Tag name ---$('tagName')
+
+            // advance selectors :
+
+            // - $('*')   --------- saare tag target honge
+            // - $('ul li') ------- ul ki andar jitne bhi li aayenge unko target karega
+            // - $('.abc , .xyz')-- multiple classes ya ids ko target kar sakte hai
+            // - $('h1 , p , a')-- multiple tags  ko target kar sakte hai
+
+            // - $("p:first")-- poore page me jo pehela wala <p> hai usko target karega
+            // - $("p:last")-- poore page me jo sabse last wala <p> hai usko target karega
+
+            // - $("li:even")-- even number wale li tags hai usko target karega
+            // - $("li:odd")-- odd number wale li tags hai usko target karega
+
+            $('#list li').css("border", "1px solid red");   //  list id me jitne bhi li tags hai unko border lagegi
+
+            $('.container div').css("border", "4px solid red"); // container class me jitne bhi div tags hai unko border lagegi
+
+            $('li:last ').css("border", "4px solid red"); // list tag ke sabse last wale list ko target karega
+
+            // $('*').css("border" , "4px solid red"); // html me jitne bhi tags aa rahe hai unko sabko target karega
+
+            $('li:odd ').css("border", "4px solid blue"); // list tag ke odd index wale li ko target karega
+            // $('li:even ').css("border" , "4px solid blue"); //  list tag ke even index wale li ko target karega
+
+            $(' ul li:eq(0) ').css("border", "4px solid black"); //poore page me list tag ke 0 index wale li ko target karega
+
+            // $(' ul li:gt(3) ').css("border" , "4px solid black"); //poore page me list tag ke 3rd index se baad wale li ko target karega
+
+            // $(' ul li:lt(4) ').css("border" , "4px solid black"); //poore page me list tag ke 4th index  se pehele wale li ko target karega
+
+
+
+            // Mouse Events :
+
+            // - click() ------
+            // - dblclick() ---
+            // - contestMenu() -
+            // - mouseEnter() ----
+            // - mouseLeave() ------
+
+            // - click() : 
+
+            $('#one').click(function () {       // one nam ki id pe click karenge tab function chalega
+                $('#one').css("background-color", "red")
+                $('#one').css("color", "yellow")
+            })
+
+            // - dblclick() :    
+
+            $('#two').dblclick(function () {
+                $('#two').css('color', 'orange')
+            })
+
+            // - contextMenu() - right click
+
+            $('#two').contextmenu(function () {
+                $('#two').css('border-radius', '20px')
+            })
+
+            // - mouseEnter() --
+            $('#two').mouseenter(function () {
+                $('#two').css('border', '5px solid green')
+            })
+
+            // - mouseLeave()
+            $('#two').mouseleave(function () {
+                $('#two ').css('border', '5px solid black')
+            })
+
+
+            // Keyboard Events :
+
+            // - keypress() ---
+            // - keydown() ---
+            // - keyup() -
+
+            // - keypress() & keydown() -- both works as same - button press karke rakhne pe kaam karega
+
+            $('body').keydown(function () {
+                $(this).css('background-color', '');
+            })
+
+            // - keyup() -- button chhodne pe kaam karega
+
+            $('body').keyup(function () {
+                $(this).css('background-color', '');
+            })
+
+
+            // Form Events : 
+
+            // - focus() ----
+            // - blur() -----
+            // - change() ---
+            // - select() ---
+            // - submit() ---
+
+            // focus() -  
+
+            $('#name,#class,#date,#select').focus(function () {
+                $(this).css('background-color', 'red');
+            })
+
+            // blur()
+
+            $('#name,#class,#date,#select').blur(function () {
+                $(this).css('background-color', '');
+            })
+
+            // select()
+
+            $('#name').select(function () {
+                alert("you have selected the name content");
+            })
+
+            // change 
+
+            $('#select').change(function () {
+                $(this).css('background-color', 'orange');
+
+            })
+            var v = $('#test').html();
+            console.log(v);
+
+            $('#name').change(function () {
+                var e = $(this).val();
+                $('#test').html(e);
+
+
+            })
+
+            // submit : 
+
+            // $('#form').submit(function () {
+            //     alert('form submitted')
+
+            // })
+
+            // $('#one').click(function () {
+            //     $(this).hide();
+            // })
+
+            // window Event
+
+            // Load , unload - discarded from the latest version
+            // Scroll - page scroll karne pe function run kara sakte hai
+            // resize - page resize karne pe function run kara sakte hai
+
+            // - scroll : puri window ya phir kisi particular div pe bhi laga sakte hai
+
+            // $(window).scroll(function(){
+            //     alert ('u r scrolling')
+            // }) 
+
+            // - resize : puri window pehi laga sakte hai
+
+            // $(resize).scroll(function(){
+            //     alert ('u r resizing')
+            // }) 
+
+            // Get Methods 
+
+            // - text() - sirf text uthata hai
+            // - html() - kisi bhi cheez ki html utha sakte hai
+            // - attr() - attributes ki value uthata hai
+            // - val()  - sirf input tags pe kaam karta hai
+
+            var a1 = $('#one').html();
+            console.log(a1 + "one");
+
+            var a2 = $('#one').text();
+            console.log(a2 + "one");
+
+            var a3 = $('#one').attr("class");
+            console.log(a3 + "one");
+
+            $('form').submit(function () {
+                var n1 = $('#name').val();
+                var n2 = $('#class').val();
+                var n3 = $('#date').val();
+                var n4 = $('#country').val();
+
+                console.log(n4);
+                alert('hello' + " " + n1 + " " + 'class -' + " " + n2 + " " + 'date of birth - ' + " " + n3 + " " + 'country is -' + n4);
+
+            })
+
+            // SET METHODS : 
+
+            // - text() - 
+            // - html() -
+            // - attr() -
+            // - val()  -
+
+            // text() - sirf text add karega 
+
+            $('#one').click(function () {
+                $('#one h3').text('changed content of h3 tag')
+            })
+
+            // html() -  text ke sath sath html ke tags bhi add kar sakte hai
+
+            $('#one').click(function () {
+                $('#one h3').html('<h2>changed content of h3 tag</h2>')
+            })
+
+            // attr() - sirf attribute set karta hai
+
+            $('h3').click(function () {
+                $('h3').attr('class', 'addedclass')
+            })
+
+            // val()  - sirf input tags ki value set and add karega 
+            $('#name').val("value set");
+
+            // CSS class METHODS
+
+            // - Add class 
+            // - Remove class 
+            // -Toggle class 
+
+            // Add class - class add karta hai kitni bhi classses add kar sakte hai ek sath space deke
+
+            $('#add1').click(function () {
+                $('#four,h1').addClass("first second")
+            })
+
+            // Remove class - class remove karta hai kitni bhi classes remove kar sakte hai ek sath space deke
+
+
+            $('#remove1').click(function () {
+                $('#four').removeClass('second')
+            })
+
+            // toggle class - class add hai toh remove karega , removed hai tab addd karega .
+
+            $('#toggle1').click(function () {
+                $('#four').toggleClass('second')
+            })
+
+            // CSS() METHOD : inline css laga sakte hai
+
+
+            $('#addstyle1').click(function () {
+                // $('#four').css("background","red");  -- sirf ek style property dene ke lie
+
+                $('#four').css({     // -- bohot sari style property dene ke lie
+                    "background": "pink",
+                    "color": "yellow",
+                    "text-transform": "uppercase",
+                    "border": "2px dashed green"
+                });
+            })
+
+            // ON() and OFF() method -- ek sath multiple events laga sakte hai
+
+            $('#four').on("click", function () {   // -- single event lagane ke liye
+                $(this).css("color", "red")
+            })
+
+            $('#four').on({      // bohot sare events ek sath lagane ke liye
+                "click": function () {
+                    $(this).css("background", "black")
+
+                },
+                "mouseover": function () {
+                    $(this).css("background", "orange")
+                },
+                "mouseout": function () {
+                    $(this).css("background", "blue")
+                }
+            })
+       
+
+            // off() -- events hatane ka kaam karta hai
+
+            $('#removeevents').click(function(){
+                $('#four').off("mouseover mouseout click")
+            })
+
+            // Append() & Prepend() METHODS 
+
+            // Append : last me add karta hai
+
+            $('#append1').click(function(){
+                $('#four').append('<h2> Append method se kiya hua heading h2</h2>')
+            })
+
+            // prepend : start me add karta hai
+
+            $('#prepend1').click(function(){
+                $('#four').prepend('<h2> prepend method se kiya hua heading h2</h2>')
+            })
+
+            // after & before : jis cheez ko target karenge uske khatam hone ke bad ye add karte hai
+            //                  jaise append aur prepend karte hai but ye target element ke andar kaam karte hai
+
+            // after -
+
+            $('#after1').click(function(){
+                $('#four').after('<h2> after method se kiya hua heading h2</h2>')
+            })
+
+            // before -
+
+            $('#before1').click(function(){
+                $('#four').before('<h2> before method se kiya hua heading h2</h2>')
+            })
+
+            // Remove() and Empty() Methods
+
+            // Empty() - sirf element ke andar ki html ko delete karta hai
+
+            $('#empty2').click(function(){
+                $('#four').empty()
+            });
+
+            // Remove() - poore div ko hi remove/delete karta hai
+
+            $('#remove2').click(function(){
+                $('#four').remove()
+            });
+
+            // AppendTo() & PrependTo() METHODS : append aur prepend jaise hi exact kaam karta hai syntax change hai bas
+
+
+            // AppendTo() - 
+
+            $('#append2').click(function(){
+                $('<h1> appendTo se append kiya hua heading h1</h1>').appendTo('#four')
+            })
+
+            // PrependTo() - 
+
+            $('#prepend2').click(function(){
+                $('<h1> prependTo se append kiya hua heading h1</h1>').prependTo('#four')
+            })
+
+            // clone() METHOD - ek div se copy karta hai ,,, usko paste karne ke liye append prepend methods use kar sakte hai 
+
+            $('#clone').click(function(){
+                $('#four h3').clone().prependTo('#five')
+            })
+
+            // Replacewith() & Replaceall()
+            
+            // Replacewith() - text node ke sath bhi replace kar sakte hai and element ke sath bhi replace kar sakte hai
+            
+            $('#replace').click(function(){
+                $('#four p:nth-child(3)').replaceWith('<h3>replaceWith method se change ki hui heading</h3>')
+            })
+            
+            // ReplaceAll() - sirf Element Tag ke sath hi replace kar sakte hai
+
+            $('#replace').click(function(){
+                // $('#four p:nth-child(3)').replaceWith('<h3>replace method se change ki hui heading</h3>')
+                $('<h1>replaceAll method se change ki hui heading</h1>').replaceAll('#four p:nth-child(2)')
+            })
+
+            // wrap() & unwrap()
+
+            // wrap - kisi bhi tag ya element ya kisi bhi cheez ko wrap karta hai kisi bhi element se 
+            //        matlab in short parent banata hai
+  
+            // example :
+
+            // $('#box p').wrap('<div class="classname"></div>') --- box namak id me jitnt bhi p tags aa rahe hai 
+            //                                                      unko div tag me wrap karlo , is me class waagere bhi add kar sakte hai 
+
+            // unwrap() - wrap ka ulta
+
+            // wrapAll() and wrapInner()
+
+            // wrapAll - wrap me kya hota tha agar 3 p tags hai to tino ko alag alag wrap karta tha 
+            //           wrapAll kya karega saare p tags ko ek hi parent ke andar wrap karega 
+
+            // wrapInner() - jaise ki <span></span> tag hai toh wrap kya karta tha span ko wrap karta tha
+            //               wrapInner kya karega <>span ke andar jo content hai usko wrap karega
+
+
+            // Height & Width
+
+            // - width() : div ke andar ke content ki width dega
+            // - height() : div ke andar ke content ki height dega
+            // - innerWidth() : left side ki andar wali border se leke right side ki andar wali border tak
+            // - innerHeight() : top side ki andar wali border se leke bottom side ki andar wali border tak
+            // - outerWidth() : left side ki bahar wali border se leke right side ki bahar wali border tak
+            // - outerHeight() : top side ki bahar wali border se leke bottom side ki bahar wali border tak
+            // - outerWidth(true) : margin aur padding wagere di hai wo bhi count hogi left right se
+            // - outerHeight(true) : margin aur padding wagere di hai wo bhi count hogi top bottom se
+
+
+
+            // 
+
+        });
+           
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,237 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Validations </title>
+    <script src="js/jquery.js"></script>
+
+    <style>
+        .container {
+            width: 410px;
+            height: 430px;
+            border: 1px solid grey;
+            border-radius: 14px;
+            position: relative;
+            left: 374px;
+            /* text-align: center; */
+        }
+
+        .form {
+            position: relative;
+            left: 30px;
+            top: 50px;
+        }
+
+        input {
+            width: 170px;
+            height: 30px;
+            border: 1px solid gray;
+            border-radius: 3px;
+            outline: transparent;
+        }
+
+        .hide {
+            display: none;
+            font-family: Arial, Helvetica, sans-serif;
+            color: red;
+            position: relative;
+            top: -10px;
+
+        }
+
+        #userError,
+        #pwdError {
+            position: relative;
+            top: -29px;
+        }
+
+        .container .userbox {
+            width: 362px;
+            height: 30px;
+        }
+
+        .suggestion p {
+            position: relative;
+            top: -10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            color: gray;
+            line-height: 30px;
+            /* line-break: 2px ; */
+        }
+
+        .heading {
+            position: relative;
+            left: 0px;
+            top: -20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a {
+
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #1a73e8;
+        }
+
+        #check {
+            position: relative;
+            left: -4px;
+            top: -24px;
+            width: 25px;
+
+        }
+
+        span {
+            position: relative;
+            left: 18px;
+            top: -36px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(32, 31, 31);
+
+        }
+
+        .leftbtn {
+            position: relative;
+            left: -1px;
+            top: 5px;
+            color: #1a73e8;
+        }
+
+        .button {
+            width: 100px;
+            height: 45px;
+            background-color: #1a73e8;
+            color: white;
+            font-weight: bold;
+            border: 1px solid#1a73e8;
+            border-radius: 5px;
+            position: relative;
+            left: 128px;
+            top: 39px;
+            text-align: center;
+            outline: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="" class="form">
+            <div id="gheading" class="heading"> Create Your google account</div>
+            <div>
+                <input type="text" id="fName" placeholder="First Name" > &nbsp;&nbsp;
+                <input type="text" id="lName" placeholder="Last Name" required>
+                <div id="nameError" class="hide">
+                    <p>Enter First Name and Last Name</p>
+                </div>
+
+            </div>
+            <br>
+            <div>
+                <input type="text" id="uName" class="userbox" placeholder="UserName" required>
+                <div class="suggestion">
+                    <p>you can use Letters , Numbers and periods</p>
+                </div>
+
+                <div id="userError" class="hide">
+                    <p>Choose a Gmail Address</p>
+                </div>
+                <a href="">Use my current email address instead</a>
+            </div>
+            <br>
+            <div>
+                <input type="password" id="Pass" placeholder="Password" required>&nbsp;&nbsp;
+                <input type="password" id="cPass" placeholder="Confirm Password" required>
+                <div class="suggestion suggestion2">
+                    <p> Use 8 or more characters with a mix of letters, numbers & symbols</p>
+
+                </div>
+                <div id="pwdError" class="hide">
+                    <p>Enter a password</p>
+                </div>
+            </div>
+
+            <div>
+                <input type="checkbox" name="" id="check"> <span>Show Password</span>
+            </div>
+
+            <div>
+                <a href="#" class="leftbtn">Sign in Instead</a>
+                <span class="btn">
+                    <button type="submit" id="loginBtn" class="button"> Next button </button>
+                </span>
+            </div>
+        </form>
+    </div>
+
+    <script>
+
+        
+
+        $(document).ready(function () {
+            $('#loginBtn').mouseover(function(){
+                $(this).css("border","3px solid red");
+            });
+            $('#loginBtn').mouseleave(function(){
+                $(this).css("border","3px solid green");
+            });
+            $('#loginBtn').click(function(){ event.preventDefault();
+
+            
+
+            var name1 = $('#fName').val();
+            var name2 = $('#lName').val();
+            var name3 = $('#uName').val();
+            var pass1 = $('#Pass').val();
+            var pass2 = $('#cPass').val();
+            
+
+        if(name1!=''){
+            $('#fName').css("border","2px solid green")
+        }
+        else{
+            $('#fName').css("border","2px solid red")
+        }
+        if(name2!=''){
+            $('#lName').css("border","2px solid green")
+        }
+        else{
+            $('#lName').css("border","2px solid red")
+        }
+        if(name3!=''){
+            $('#uName').css("border","2px solid green")
+        }
+        else{
+            $('#uName').css("border","2px solid red")
+        }
+        if(pass1!='' ){
+            $('#Pass').css("border","2px solid green")
+        }
+        else{
+            $('#Pass').css("border","2px solid red")
+        }
+        if(pass2!=''){
+            $('#cPass').css("border","2px solid green")
+        }
+        else{
+            $('#cPass').css("border","2px solid red")
+        }
+        if(pass1 === pass2 && pass1!=''  && pass2!=''){
+            $('#Pass').css("border","2px solid green")
+            $('#cPass').css("border","2px solid green")
+        }
+        else{
+            $('#Pass').css("border","2px solid red")
+            $('#cPass').css("border","2px solid red") 
+        }  
+     })            
+  });
+ </script>
+
+</body>
+
+</html>
